@@ -24,34 +24,41 @@
   border: black;
 }
 
-.deleted{
-  height: 25px;
-  margin-top: 50px;
+#list-item{
+  width: 100%;
+  margin-top: 100px;
+  color: rgb(131, 127, 127);
 }
 
-.check-name{
-  font-size: 22px;
-  color: rgb(124, 124, 124);
+#list-item tr{
+  border-bottom: 1px solid #ddd;;
+  padding-top: 20px;
+  padding-right: 20px;
 }
 
-.check{
-  width: 60px;
-  height: 24px;
-  
-  margin-right: 20px;
+#list-item th{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: rgb(131, 127, 127);
+  font-style: normal;
+  font-weight: 400;
 }
 
-.list{
-  margin-top: 80px;
-  color: rgb(124, 124, 124);
+#list-item td{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: black;
 }
 
-.actions{
-  text-align: center;
-}
-
-.item .action{
-  text-align: center;
+.action{
   display: flex;
   justify-content: space-around;
+}
+
+.form-add{
+  width: 400px;
+}
+
+.form-add input{
+  margin-bottom: 20px;
 }
