@@ -1,11 +1,22 @@
 import '../App.css';
+import AddProduct from './Add-product'
+import React, { useState } from 'react';
 
-function Top_products() {
+
+function Top_products(props) {
+  
+  // const [showHide, setShowHide] = useState(false);
+
+  // const hideComponent = () => {
+  //   setShowHide(true)
+  // };
+
   return (
+
     <div>
       <div className="top row">
         <div className='col-6'>
-          <button type="button" className="btn btn-primary">ADD NEW PRODUCT</button>
+          <button type="button" className="btn btn-primary" onClick={props.hideComponent} >ADD NEW PRODUCT</button>
         </div>
         <div className='search container-fluid col-6'>
           <input type="text" className="" placeholder="Search" />
@@ -13,8 +24,8 @@ function Top_products() {
           <div className="solid"></div>
         </div>
       </div>
+      {/* {showHide && <AddProduct/>} */}
     </div>
-    );
+  );
 }
-
 export default Top_products;

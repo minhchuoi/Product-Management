@@ -2,9 +2,10 @@ import './App.css';
 import Top_products from './component/Top-products.js'
 import Item from './component/Item.js'
 import React, { useState } from 'react';
+import AddProduct from './component/Add-product'
 
 function App() {
-  let [listItem, setListItem] = useState([
+  const [listItem, setListItem] = useState([
     { productName: 'Inovex Television', productCode: 'PRD-01', brand: 'Innovex', supplier: 'Innovex Pvt' },
     { productName: 'Plastic Chair 002', productCode: 'PRD-02', brand: 'Nika', supplier: 'Nikal' },
     { productName: 'Washing Machiness', productCode: 'PRD-03', brand: 'Piuv', supplier: 'Piuv' },
@@ -12,14 +13,30 @@ function App() {
     { productName: 'Giner Medium prov', productCode: 'PRD-05', brand: 'Yons', supplier: 'Yonsop' }
   ]);
 
-  // listItem.map((item, index));
+  const [showHide, setShowHide] = useState(false);
+
+  const hideComponent = () => {
+    setShowHide(true)
+  };
+
+  const addItem = () =>{
+    let prName = document.getElementById("product-name").value.trim();
+    let prCode = document.getElementById("product-code").value.trim();
+    let brand = document.getElementById("brand").value.trim();
+    let supplier = document.getElementById("supplier").value.trim();
+    
+    setListItem([
+    { productName: prName, productCode: prCode, brand: brand, supplier: supplier },
+    ...listItem
+    ])
+
+
+  }
 
   return (
-    
-
     <div className="App container">
-      <Top_products></Top_products>
-
+      <Top_products hideComponent={hideComponent}></Top_products>
+      {showHide && <AddProduct addItem={addItem}/>}
       <table id="list-item">
         <tr>
           <th>Product Name</th>
@@ -29,14 +46,11 @@ function App() {
           <th className="action">Actions</th>
         </tr>
         {
-          listItem.length>0 && listItem.map((item, index) =>
-          <Item 
-          key={item.productCode}
-          productName={item.productName}
-          productCode={item.productCode}
-          brand={item.brand}
-          supplier={item.supplier}
-        ></Item>)}
+          listItem.length > 0 && listItem.map((item, index) =>
+            <Item
+              key={index}
+              item={item}
+            ></Item>)}
       </table>
 
 
